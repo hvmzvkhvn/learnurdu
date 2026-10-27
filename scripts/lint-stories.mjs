@@ -1,5 +1,5 @@
 // Checks every story chat: all links resolve, nothing dead-ends, every ending can be reached,
-// and the learner never says তুমি-forms to an elder (friends are fine).
+// and no elder says آپ to the learner. (Wrong-on-purpose reply options, like تم to Nani, are allowed: they lower the meter.)
 //
 //   npm run lint:stories
 import { createServer } from 'vite'
@@ -11,9 +11,9 @@ const server = await createServer({ root, server: { middlewareMode: true }, appT
 const { stories } = await server.ssrLoadModule('/src/data/stories.js')
 await server.close()
 
-const TUMI = /তুমি|তোমার|তোমাকে|তোমরা/
-const APNI = /আপনি|আপনার|আপনাকে/
-const ELDERS = new Set(['sir', 'dada', 'chacha', 'khala', 'driver', 'seller', 'shop', 'local', 'officer'])
+// whole word آپ only (آپس etc. are different words)
+const APNI = /(^|[\s،۔؟!"])آپ(?=$|[\s،۔؟!"])/
+const ELDERS = new Set(['sir', 'dada', 'nana', 'nani', 'am', 'ab', 'chacha', 'khala', 'driver', 'seller', 'shop', 'local', 'officer'])
 const issues = []
 let beats = 0
 
@@ -32,7 +32,7 @@ for (const st of stories) {
       if (!n.who || !st.cast[n.who]) issues.push(`${at(id)}: unknown speaker "${n.who}"`)
       if (!n.next) issues.push(`${at(id)}: message with no next`)
       if (ELDERS.has(n.who) && APNI.test(n.bn.replace(/"[^"]*"/g, '')) && n.who !== 'driver' && n.who !== 'seller' && n.who !== 'shop' && n.who !== 'local' && n.who !== 'officer')
-        issues.push(`${at(id)}: an elder says আপনি to the learner → ${n.bn}`)
+        issues.push(`${at(id)}: an elder says آپ to the learner → ${n.bn}`)
     }
     for (const [i, o] of (n.choice ?? []).entries()) {
       beats++

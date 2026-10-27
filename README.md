@@ -9,17 +9,19 @@ npm install
 npm run dev
 ```
 
-## What is here (phase 1)
+## What is here
 
 Two tracks, both starting from the alphabet:
 
 - **Little Learners (5–7):** the letters in shape families, family words, numbers, colours, animals, food, body, around us, My Pakistan, greetings, and the Family conversation units. Reviews are treasure hunts.
 - **Explorers (8–12):** all letters, aspirated sounds (بھ پھ…), vowel marks (zabar, zer, pesh and the long vowels), first words, vocabulary, sentences, present-tense verb patterns and the Family units.
 
+Both tracks have 7 Family units with 21 conversations each, and a **Super challenge** at the end of every unit (`src/data/super/`: letter units use real words made only from letters taught so far; the rest are longer sentences built from words already taught). The 8–12 track has 4 **story chats** (`src/data/stories.js`: the sweet shop, a new friend, Nani's visit, a rainy day), placed in the unit named by each story's `place.older`.
+
 Also working: XP, streaks and games, tracing (auto-scored), Review today (spaced repetition), Say it, the voice studio, the save code, offline audio and install-as-an-app.
 
 **Still to write** (the files exist as empty stubs, so the features stay hidden until they have content):
-the 13–15, 16–18 and 18+ tracks (`teenWords`, `teenSentences`, `teenText`, `adultText`, `conjuncts`), story chats (`stories.js`), Super challenges (`super/*`), Explore Pakistan (`explore.js`, `bdMap.js`) and the Playbook (`playbook/*`). `scripts/lint-stories.mjs` and `scripts/lint-super.mjs` still check Bangla rules and need porting with that content.
+the 13–15, 16–18 and 18+ tracks (`teenWords`, `teenSentences`, `teenText`, `adultText`, `conjuncts`, `super/teen.js` and friends), Explore Pakistan (`explore.js`, `bdMap.js`) and the Playbook (`playbook/*`).
 
 ## How the curriculum is organised
 
@@ -44,7 +46,15 @@ Urdu-specific details:
 
 **Reviewing content:** open `/review`, mark each item, then use *Copy corrections* or *Download as JSON*.
 
-**Address rules** (Family unit): the child (Sara) says آپ to every elder; elders say تم to the child; Sara says تم to friends (Ali, Hina). Check with `npm run lint:family`.
+**Address rules** (Family unit): the child (Sara) says آپ to every elder; elders say تم to the child; Sara says تم to friends (Ali, Hina). In story chats the learner may be a boy or a girl, so their replies avoid gendered verb endings.
+
+Checkers:
+
+```bash
+npm run lint:family     # آپ / تم address rules in every Family line
+npm run lint:stories    # every story graph: links, dead ends, reachable endings, no elder saying آپ to the learner
+npm run lint:super      # Super challenges only use letters / words already taught (verb forms and -ی/-ے endings forgiven)
+```
 
 ## Audio
 

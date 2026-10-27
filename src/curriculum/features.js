@@ -22,7 +22,7 @@ export const FEATURES = {
   },
   older: {
     xp: true, playful: true, garden: false, gentleStreak: true,
-    arcade: ['daily', 'blitz', 'memory', 'type'], explore: false, playbook: false, storyboards: false, stories: false, treasure: false, boss: false, listenType: true, blitzSeconds: 90,
+    arcade: ['daily', 'blitz', 'memory', 'type'], explore: false, playbook: false, storyboards: false, stories: true, treasure: false, boss: false, listenType: true, blitzSeconds: 90,
     trace: { letters: 2, signs: true, syllables: false, words: 1, digits: false },
   },
   teen: {
