@@ -1,13 +1,13 @@
 {
-  "name": "Learn Bangla",
-  "short_name": "Learn Bangla",
-  "description": "Learn Bangla from the alphabet to real conversations, with audio, stories and games.",
+  "name": "Learn Urdu",
+  "short_name": "Learn Urdu",
+  "description": "Learn Urdu from the alphabet to real conversations, with audio, stories and games.",
   "id": "/",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#FFFDF7",
-  "theme_color": "#1B7A7A",
+  "theme_color": "#0F6E4F",
   "lang": "en",
   "categories": ["education", "kids"],
   "icons": [

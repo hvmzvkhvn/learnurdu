@@ -1,8 +1,12 @@
 // Works out how to write a glyph from the glyph itself: thin it to a one-pixel centreline, break that into
-// pen strokes (joining through junctions where the line carries straight on), put the headline (মাত্রা) last,
-// and order the rest left to right. The result is a *proposal* — /review/strokes lets a Bangla speaker correct
+// pen strokes (joining through junctions where the line carries straight on), and order them the Urdu way:
+// right to left and top to bottom, the letter's body first, then the smaller strokes (kashish, marks) right to left.
+// (Learn Bangla also detects the মাত্রা headline; Urdu has none, so that step is switched off with HEADLINE.)
+// Dots are too small to survive thinning and are not part of the guide. The result is a *proposal* — /review/strokes lets a Urdu speaker correct
 // the order and direction, and the corrections are kept in src/data/strokeFixes.js.
 import { FONT, drawText, fitFont } from './trace'
+
+const HEADLINE = false
 
 // ---- thinning (Zhang–Suen) --------------------------------------------------------------------------------------
 function thin(img, w, h) {
@@ -227,7 +231,7 @@ export function buildStrokes(glyph, w, h) {
     const xs = e.pts.map((p) => p[0]), ys = e.pts.map((p) => p[1])
     return Math.abs(Math.min(...ys) - bestY) <= 7 && Math.abs(Math.max(...ys) - bestY) <= 7 && Math.max(...xs) - Math.min(...xs) >= 2.2 * (Math.max(...ys) - Math.min(...ys))
   }
-  if (bw >= 24 && best >= 0.5 * bw) {
+  if (HEADLINE && bw >= 24 && best >= 0.5 * bw) {
     const mEdges = edges.filter(flat)
     const mx = mEdges.flatMap((e) => e.pts.map((p) => p[0]))
     if (mEdges.length && Math.max(...mx) - Math.min(...mx) >= 0.5 * bw) {
@@ -301,7 +305,7 @@ export function buildStrokes(glyph, w, h) {
     let pts = smooth(resample(ch.pts))
     if (lengthOf(pts) < Math.max(7, size * 0.035)) continue
     if (ch.loop || dist(pts[0], pts[pts.length - 1]) < 6) {
-      // closed shape: start at the top, run anticlockwise (left first)
+      // closed shape: start at the top, run anticlockwise (left first), as in ص and ط
       let ti = 0
       pts.forEach((p, i) => { if (p[1] < pts[ti][1]) ti = i })
       pts = [...pts.slice(ti), ...pts.slice(0, ti), pts[ti]]
@@ -309,12 +313,14 @@ export function buildStrokes(glyph, w, h) {
     } else {
       const a = pts[0], b = pts[pts.length - 1]
       const nearMatra = (p) => matra && Math.abs(p[1] - matra.pts[0][1]) < 9
-      const flip = nearMatra(b) && !nearMatra(a) ? true : nearMatra(a) && !nearMatra(b) ? false : Math.abs(a[1] - b[1]) > 10 ? b[1] < a[1] : b[0] < a[0]
+      const flip = nearMatra(b) && !nearMatra(a) ? true : nearMatra(a) && !nearMatra(b) ? false : Math.abs(a[1] - b[1]) > 10 ? b[1] < a[1] : b[0] > a[0]
       if (flip) pts = pts.reverse()
     }
     strokes.push({ pts, matra: false })
   }
-  strokes.sort((p, q) => p.pts[0][0] - q.pts[0][0] || p.pts[0][1] - q.pts[0][1])
+  const longest = Math.max(0, ...strokes.map((st) => lengthOf(st.pts)))
+  const minor = (st) => lengthOf(st.pts) < 0.35 * longest
+  strokes.sort((p, q) => minor(p) - minor(q) || q.pts[0][0] - p.pts[0][0] || p.pts[0][1] - q.pts[0][1])
   if (matra) strokes.push({ pts: resample(matra.pts, 3), matra: true })
   return { size, strokes }
 }

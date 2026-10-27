@@ -7,8 +7,8 @@ import { APPROVED } from '../data/strokesApproved'
 import { FIXES } from '../data/strokeFixes'
 import StrokeDemo from '../components/lesson/StrokeDemo'
 
-const DIGITS = [...'০১২৩৪৫৬৭৮৯']
-const COLORS = ['#1B7A7A', '#D9822B', '#7A4FB5', '#2E8B57', '#C2410C', '#2563EB', '#B83280', '#4D7C0F']
+const DIGITS = [...'۰۱۲۳۴۵۶۷۸۹']
+const COLORS = ['#0F6E4F', '#D9822B', '#7A4FB5', '#2E8B57', '#C2410C', '#2563EB', '#B83280', '#4D7C0F']
 const uniq = (a) => [...new Set(a)]
 
 export default function StrokeReview() {
@@ -53,7 +53,7 @@ export default function StrokeReview() {
       <Link to="/review" className="text-sm font-bold text-primary">← Review</Link>
       <h1 className="mt-2 text-3xl font-extrabold text-primary">Stroke-order review</h1>
       <p className="mb-4 max-w-2xl text-ink/70">
-        Each card shows how the letter is proposed to be written: coloured strokes, numbered in order, the arrow at the end showing the direction. The headline (মাত্রা) is drawn last. Use the buttons to fix a stroke's order
+        Each card shows how the letter is proposed to be written: coloured strokes, numbered in order, the arrow at the end showing the direction. The letter's body comes first, then the smaller strokes, right to left; dots are left out. Use the buttons to fix a stroke's order
         (↑ ↓), flip its direction (⇄) or remove a stray one (✕). <b>▶ Play</b> shows the animation the learner would see. Mark each card ✓ when it is right.
       </p>
 

@@ -60,7 +60,7 @@ export default function TraceQ({ ex, onSolved, lenient = false }) {
       ctx.lineWidth = info.current.pen
       ctx.lineCap = 'round'
       ctx.lineJoin = 'round'
-      ctx.strokeStyle = '#1B7A7A'
+      ctx.strokeStyle = '#0F6E4F'
       setReady(true)
     })()
     return () => {

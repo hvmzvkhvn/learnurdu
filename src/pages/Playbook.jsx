@@ -26,7 +26,7 @@ function Tile({ to, scene, emoji, title, sub, done, id }) {
         {done && <span className="absolute right-2 top-2 rounded-full bg-success px-2 py-0.5 text-xs font-extrabold text-white shadow">✓ done</span>}
       </div>
       <div className="px-3 py-2.5">
-        <p className="font-bangla text-lg font-extrabold leading-tight text-primary">{title.bn}</p>
+        <p className="font-urdu text-lg font-extrabold leading-tight text-primary">{title.bn}</p>
         <p className="text-xs font-bold text-ink/50">{title.en}{sub ? ` · ${sub}` : ''}</p>
       </div>
     </Link>
@@ -74,7 +74,7 @@ export default function Playbook() {
   return (
     <div className="pb-6">
       <h1 className="mt-2 text-3xl font-extrabold text-primary">🎨 Playbook</h1>
-      <p className="text-ink/60">Pictures to read, tap and build — learn Bangla by looking.</p>
+      <p className="text-ink/60">Pictures to read, tap and build — learn Urdu by looking.</p>
 
       <Section title="📖 Picture books" hint={young ? 'Tap the speaker to hear every page.' : 'Read the story, tap any word to hear it, and open the English if you need it.'}>
         {books.map((b) => (
@@ -82,7 +82,7 @@ export default function Playbook() {
         ))}
       </Section>
 
-      <Section title="🔍 Look & Learn" hint="Tap things in the picture to hear their Bangla names, then play “Find it”.">
+      <Section title="🔍 Look & Learn" hint="Tap things in the picture to hear their Urdu names, then play “Find it”.">
         {lookScenes.map((l) => (
           <Tile key={l.id} to={`/playbook/look/${l.id}`} scene={l.scene} id={`t-look-${l.id}`} title={l.title} done={Boolean(looked[l.id])} />
         ))}
@@ -96,7 +96,7 @@ export default function Playbook() {
 
       {feat.storyboards && (
         <Section title="🎞️ The story of Bangladesh" hint="Storyboards of the 1905–1971 road to independence. Each division’s storyboard opens from its card on Explore.">
-          <Tile to="/playbook/story/timeline" scene={timelineStory.panels[2].scene} id="t-timeline" title={{ bn: 'স্বাধীনতার পথ', en: timelineStory.title }} sub={`${timelineStory.panels.length} panels`} done={Boolean(read['story:timeline'])} />
+          <Tile to="/playbook/story/timeline" scene={timelineStory.panels[2].scene} id="t-timeline" title={{ bn: 'آزادی کا سفر', en: timelineStory.title }} sub={`${timelineStory.panels.length} panels`} done={Boolean(read['story:timeline'])} />
           <Link to="/explore" className="flex flex-col items-center justify-center rounded-3xl bg-secondary/10 px-3 py-4 text-center font-extrabold text-secondary">
             <span className="text-4xl">🗺️</span>
             Division storyboards

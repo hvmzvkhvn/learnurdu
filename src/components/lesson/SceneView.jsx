@@ -6,7 +6,7 @@ import { useRoman } from '../../state/roman'
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 
-/** A conversation as chat bubbles. Tara is on the right; everyone else on the left. */
+/** A conversation as chat bubbles. Sara (the child) is on the right; everyone else on the left. */
 export default function SceneView({ scene }) {
   const [active, setActive] = useState(-1)
   const [soundOn] = useSoundOn()
@@ -59,7 +59,7 @@ export default function SceneView({ scene }) {
             <div key={l.id} className={`flex items-end gap-2 ${me ? 'flex-row-reverse' : ''}`}>
               <div className="flex w-14 shrink-0 flex-col items-center text-center">
                 <span className="text-3xl">{who?.emoji}</span>
-                <span className="font-bangla text-xs font-extrabold leading-tight text-ink/60">{who?.bn}</span>
+                <span className="font-urdu text-xs font-extrabold leading-tight text-ink/60">{who?.bn}</span>
               </div>
               <button
                 type="button"
@@ -71,7 +71,7 @@ export default function SceneView({ scene }) {
                 <span className="flex items-start gap-2">
                   {l.art && <span className="text-2xl">{l.art}</span>}
                   <span>
-                    <span className="block font-bangla text-xl font-bold leading-snug text-primary">{l.bn}</span>
+                    <span className="block font-urdu text-xl font-bold leading-snug text-primary">{l.bn}</span>
                     {romanOn && <span className="block text-xs font-bold text-ink/60">{l.roman}</span>}
                     <span className="block text-xs text-ink/50">{l.en}</span>
                   </span>

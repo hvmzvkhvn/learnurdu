@@ -20,7 +20,7 @@ const GAMES = {
   blitz: { emoji: '⚡', title: 'Word Blitz', blurb: 'Answer fast and build a combo before the clock runs out.', color: 'bg-primary text-white' },
   memory: { emoji: '🃏', title: 'Memory Match', blurb: 'Flip the cards and find the matching pairs.', color: 'bg-ink text-white' },
   geo: { emoji: '📍', title: 'Map Quiz', blurb: 'Tap, guess and match places on the map of Bangladesh.', color: 'bg-secondary text-white' },
-  type: { emoji: '⌨️', title: 'Type It', blurb: 'Hear a word and type it in Bangla.', color: 'bg-success text-white' },
+  type: { emoji: '⌨️', title: 'Type It', blurb: 'Hear a word and type it in Urdu.', color: 'bg-success text-white' },
 }
 
 // A small deterministic shuffle so everyone gets the same questions on the same day.
@@ -83,7 +83,7 @@ function Runner({ gameKey }) {
   const { game, act } = useGame()
   const [result, setResult] = useState(null)
   const [round, setRound] = useState(0)
-  const track = trackKey ?? 'teen'
+  const track = trackKey ?? 'older'
   const feat = featuresOf(track)
   const picture = track === 'young'
   const meta = GAMES[gameKey]
@@ -124,7 +124,7 @@ function Runner({ gameKey }) {
         <p className="text-7xl">{feat.garden && meta.kidEmoji ? meta.kidEmoji : meta.emoji}</p>
         <h1 className="mt-3 text-3xl font-extrabold text-primary">{result.headline}</h1>
         <p className="mt-2 text-ink/60">{result.line}</p>
-        {feat.playful && <p className="mt-3 text-lg font-extrabold text-primary">⭐ Tara says: “Great playing!”</p>}
+        {feat.playful && <p className="mt-3 text-lg font-extrabold text-primary">⭐ Sitara says: “Great playing!”</p>}
         <p className="mt-4 text-2xl font-extrabold text-success">+{result.xp} XP</p>
         <div className="mx-auto mt-6 flex max-w-xs flex-col gap-3">
           {gameKey !== 'daily' && <button onClick={again} className="btn-primary">Play again</button>}

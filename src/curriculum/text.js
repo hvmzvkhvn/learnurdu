@@ -1,22 +1,19 @@
-// Marks that attach to the previous letter: chandrabindu, anusvara, visarga, nukta, vowel signs, virama.
-const MARKS = new Set([0x981, 0x982, 0x983, 0x9bc, 0x9be, 0x9bf, 0x9c0, 0x9c1, 0x9c2, 0x9c3, 0x9c4, 0x9c7, 0x9c8, 0x9cb, 0x9cc, 0x9cd, 0x9d7])
-const VIRAMA = 0x9cd
+// Marks that attach to the previous letter: zabar, zer, pesh, tanween, shadd, jazm, hamza above/below, khari zabar
+// (U+064B–U+065F, U+0670), and do-chashmi he (ھ), which makes aspirates like بھ and پھ one sound.
+const isMark = (cp) => (cp >= 0x64b && cp <= 0x65f) || cp === 0x670 || cp === 0x6be
 
-/** Split a Bangla word into tile-sized clusters (letter + its signs; conjuncts stay together). */
+/** Split an Urdu word into tile-sized clusters (a letter + its marks; aspirates like بھ stay together). */
 export function splitClusters(word) {
   const units = []
-  let joinNext = false
   for (const ch of Array.from(word)) {
-    const cp = ch.codePointAt(0)
-    if (units.length && (MARKS.has(cp) || joinNext)) {
-      units[units.length - 1] += ch
-    } else {
-      units.push(ch)
-    }
-    joinNext = cp === VIRAMA
+    if (units.length && isMark(ch.codePointAt(0))) units[units.length - 1] += ch
+    else units.push(ch)
   }
   return units
 }
+
+/** True when the text contains Urdu (Arabic-script) letters. */
+export const hasUrdu = (s) => /[\u0600-\u06FF]/.test(s ?? '')
 
 export function shuffle(arr) {
   const a = [...arr]

@@ -38,7 +38,7 @@ export default function MatchQ({ ex, onSolved, onWrong }) {
         type="button"
         onClick={() => tap(side, i, face)}
         disabled={isDone}
-        className={`flex min-h-[4.5rem] items-center justify-center rounded-2xl border-4 bg-white p-2 shadow-sm transition active:scale-95 ${
+        className={`flex min-h-[4.5rem] w-full items-center justify-center rounded-2xl border-4 bg-white p-2 shadow-sm transition active:scale-95 ${
           isDone ? 'border-success bg-success/10 opacity-60' : isSel ? 'border-secondary bg-accent/30' : 'border-primary/10'
         }`}
       >

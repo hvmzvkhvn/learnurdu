@@ -44,7 +44,7 @@ export const BADGES = [
   { id: 'story', emoji: '💬', title: 'Storyteller', desc: 'Finish a story chat', test: (g) => g.stats.stories >= 1 },
   { id: 'story5', emoji: '🎭', title: 'Chatterbox', desc: 'Finish 5 story chats', test: (g) => g.stats.stories >= 5 },
   { id: 'smooth', emoji: '😎', title: 'Smooth Talker', desc: 'Get a top ending in a story', test: (g) => g.stats.greatEndings >= 1 },
-  { id: 'typist', emoji: '⌨️', title: 'Typist', desc: 'Type 20 words in Bangla', test: (g) => g.stats.typed >= 20 },
+  { id: 'typist', emoji: '⌨️', title: 'Typist', desc: 'Type 20 words in Urdu', test: (g) => g.stats.typed >= 20 },
   { id: 'blitz', emoji: '⚡', title: 'Quick Draw', desc: 'Score 15 in a Word Blitz', test: (g) => g.stats.blitzBest >= 15 },
   { id: 'memory', emoji: '🐘', title: 'Elephant Memory', desc: 'Win Memory Match in 8 moves or fewer', test: (g) => g.stats.memoryBest > 0 && g.stats.memoryBest <= 8 },
   { id: 'boss', emoji: '⚔️', title: 'Boss Slayer', desc: 'Beat a boss level', test: (g) => g.stats.bosses >= 1 },

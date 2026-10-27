@@ -16,8 +16,8 @@ export default function AgeSelect() {
       <div className="card mb-6 flex items-center gap-4">
         <span className="text-6xl">⭐</span>
         <div>
-          <p className="font-bangla text-3xl font-bold text-primary">স্বাগতম!</p>
-          <p className="text-lg font-bold text-ink/70">Hi, I'm Tara! How old are you?</p>
+          <p className="font-urdu text-left text-3xl font-bold text-primary">خوش آمدید!</p>
+          <p className="text-lg font-bold text-ink/70">Hi, I'm Sitara! How old are you?</p>
         </div>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">

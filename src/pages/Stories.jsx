@@ -8,7 +8,7 @@ const COUNT_ENDINGS = (st) => Object.values(st.nodes).filter((n) => n.end).lengt
 export default function Stories() {
   const [trackKey] = useTrack()
   const { game } = useGame()
-  const list = storiesFor(trackKey ?? 'teen')
+  const list = storiesFor(trackKey ?? 'older')
   return (
     <div className="py-2">
       <h1 className="text-3xl font-extrabold text-primary">Story chats</h1>

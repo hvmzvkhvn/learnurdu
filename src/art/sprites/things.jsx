@@ -58,7 +58,7 @@ def('💵', () => (
     <rect x="8" y="30" width="84" height="44" rx="5" fill="#9CCB8F" {...st} />
     <rect x="14" y="36" width="72" height="32" rx="3" fill="none" stroke={C.dark} strokeWidth="1.8" />
     <circle cx="50" cy="52" r="11" fill="#D6EBC9" {...st} strokeWidth="1.8" />
-    <text x="50" y="58" textAnchor="middle" fontSize="16" fontWeight="900" fill={C.dark}>৳</text>
+    <text x="50" y="58" textAnchor="middle" fontSize="16" fontWeight="900" fill={C.dark}>Rs</text>
   </g>
 ))
 def('🛍️', () => (
@@ -68,7 +68,7 @@ def('🛍️', () => (
     <circle cx="50" cy="60" r="9" fill={C.white} opacity=".7" />
   </g>
 ))
-def('🧸 🪆', () => ( // a rag doll (the word is পুতুল)
+def('🧸 🪆', () => ( // a rag doll (the word is گڑیا)
   <g>
     <circle cx="50" cy="26" r="16" fill={C.skinL} {...st} />
     <path d="M34 24 a16 16 0 0 1 32 0 q-6 -8 -16 -8 q-10 0 -16 8z" fill={C.hair} {...st} />
@@ -200,10 +200,10 @@ def('🍯', () => (
   <g>
     <path d="M26 30 H74 q8 14 4 40 q-2 18 -28 18 q-26 0 -28 -18 q-4 -26 4 -40z" fill={C.orange} {...st} />
     <rect x="24" y="18" width="52" height="14" rx="5" fill={C.brown} {...st} />
-    <rect x="34" y="44" width="32" height="26" rx="4" fill={C.cream} {...st} /><text x="50" y="64" textAnchor="middle" fontSize="16" fontWeight="900" fill={C.brown}>মধু</text>
+    <rect x="34" y="44" width="32" height="26" rx="4" fill={C.cream} {...st} /><text x="50" y="64" textAnchor="middle" fontSize="16" fontWeight="900" fill={C.brown}>شہد</text>
   </g>
 ))
-def('🪕', () => ( // dotara, a Bengali folk lute
+def('🪕', () => ( // dotara, a Urdu folk lute
   <g transform="rotate(30 50 50)">
     <rect x="46" y="2" width="8" height="46" rx="3" fill={C.brown} {...st} />
     <ellipse cx="50" cy="66" rx="20" ry="24" fill={C.wood} {...st} /><circle cx="50" cy="66" r="7" fill={O} />

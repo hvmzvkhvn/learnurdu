@@ -1,4 +1,4 @@
-// Small helpers shared by the curriculum files (tracks.js, teenTracks.js).
+// Small helpers shared by the curriculum files (tracks.js).
 import { chunk } from './text'
 import { bank, wordIdsByCat, categoryMeta } from './bank'
 

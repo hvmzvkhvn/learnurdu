@@ -266,7 +266,7 @@ function Item({ it }) {
   }
   if (it.t !== undefined) {
     return (
-      <text x={x} y={y} textAnchor="middle" fontSize={it.s ?? 40} fontWeight={it.w ?? 900} fill={it.c ?? '#2D2D2D'} stroke="#fff" strokeWidth="5" paintOrder="stroke" className={`font-bangla ${cls}`}>
+      <text x={x} y={y} textAnchor="middle" fontSize={it.s ?? 40} fontWeight={it.w ?? 900} fill={it.c ?? '#2D2D2D'} stroke="#fff" strokeWidth="5" paintOrder="stroke" className={`font-urdu ${cls}`}>
         {it.t}
       </text>
     )

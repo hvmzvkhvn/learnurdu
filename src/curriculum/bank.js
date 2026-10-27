@@ -1,6 +1,6 @@
 // The content bank: every letter, sign, syllable, word and sentence in the curriculum,
 // each with a stable id. Lessons only refer to ids, so one correction fixes everywhere.
-import { vowels, consonantGroups, vowelSigns } from '../data/alphabet'
+import { letterGroups, vowelSigns, aspirates } from '../data/alphabet'
 import { wordCategories } from '../data/words'
 import { sentenceGroups, verbs, pronounForms } from '../data/sentences'
 import { roster, phrases, scenes, politeYoung, politeOlder, unitLayout, ADDRESS_TIP } from '../data/family'
@@ -20,33 +20,26 @@ const add = (item) => {
   return item.id
 }
 
-// ---- Letters -------------------------------------------------------------
-export const vowelIds = vowels.map((v) =>
-  add({ id: `letter:${v.letter}`, kind: 'letter', section: 'Vowels', bn: v.letter, roman: v.roman, art: v.example.emoji, example: v.example }),
-)
+// ---- Letters (in shape families) ------------------------------------------
+const letterItem = (l, section) =>
+  add({ id: `letter:${l.letter}`, kind: 'letter', section, bn: l.letter, roman: l.roman, sound: l.sound, art: l.example.emoji, example: l.example })
 
-export const consonantGroupIds = consonantGroups.map((g) => ({
-  name: g.name,
-  hint: g.hint,
-  ids: g.letters.map((c) =>
-    add({ id: `letter:${c.letter}`, kind: 'letter', section: g.name, bn: c.letter, roman: c.roman, art: c.example.emoji, example: c.example }),
-  ),
-}))
+export const letterGroupIds = letterGroups.map((g) => ({ key: g.key, name: g.name, hint: g.hint, ids: g.letters.map((l) => letterItem(l, g.name)) }))
+export const aspirateIds = aspirates.map((l) => letterItem(l, 'Aspirated sounds'))
 
-// ---- Vowel signs (shown on ক) and practice syllables ----------------------
+// ---- Vowel marks and long vowels (shown on ب) and practice syllables -------------
 export const signIds = vowelSigns.map((s) =>
-  add({ id: `sign:${s.sign}`, kind: 'sign', section: 'Vowel signs', bn: s.combined, roman: s.combinedRoman, signChar: s.sign, signRoman: s.roman }),
+  add({ id: `sign:${s.sign}`, kind: 'sign', section: 'Vowel marks', bn: s.combined, roman: s.combinedRoman, signChar: s.sign, signRoman: s.roman, signName: s.name }),
 )
 
-const SYL_CONSONANTS = ['ক', 'গ', 'চ', 'জ', 'ত', 'দ', 'ন', 'প', 'ব', 'ম', 'র', 'ল', 'শ', 'হ']
-const stemOf = (letter) => bank.get(`letter:${letter}`).roman.replace(/o$/, '')
+const SYL_CONSONANTS = ['ت', 'ج', 'د', 'ر', 'س', 'ک', 'گ', 'ل', 'م', 'ن', 'پ', 'چ', 'ش', 'ہ']
+const soundOf = (letter) => bank.get(`letter:${letter}`).sound
 
-export const syllableIdsBySign = vowelSigns.map((s, i) => {
-  const pool = s.sign === 'ৃ' ? ['ম', 'দ', 'হ', 'ত'] : [0, 1, 2, 3].map((j) => SYL_CONSONANTS[(i * 3 + j + 1) % SYL_CONSONANTS.length])
-  return pool
-    .filter((c) => c !== 'ক')
-    .map((c) => add({ id: `syl:${c}${s.sign}`, kind: 'syllable', section: 'Vowel signs', bn: c + s.sign, roman: stemOf(c) + s.roman }))
-})
+export const syllableIdsBySign = vowelSigns.map((s, i) =>
+  [0, 1, 2, 3].map((j) => SYL_CONSONANTS[(i * 3 + j) % SYL_CONSONANTS.length]).map((c) =>
+    add({ id: `syl:${c}${s.sign}`, kind: 'syllable', section: 'Vowel marks', bn: c + s.sign, roman: soundOf(c) + s.roman }),
+  ),
+)
 
 // ---- Words ---------------------------------------------------------------
 export const wordIdsByCat = {}
@@ -99,7 +92,7 @@ verbs.forEach((v) => {
   )
 })
 
-// ---- Family unit: phrases, আপনি/তুমি practice and conversations -------------------------------
+// ---- Family unit: phrases, آپ/تم practice and conversations -------------------------------
 export { roster, unitLayout, ADDRESS_TIP }
 const AGES = { young: '5–7', older: '8–12' }
 
@@ -112,19 +105,19 @@ for (const track of ['young', 'older']) {
     }),
   )
 
-  // আপনি / তুমি practice
+  // آپ / تم practice
   let polite
   if (track === 'young') {
-    const apni = 'word:pronouns:আপনি'
-    const tumi = 'word:pronouns:তুমি'
+    const apni = 'word:pronouns:آپ'
+    const tumi = 'word:pronouns:تم'
     polite = politeYoung.map((c) => ({
       title: c.title, stem: { art: c.art, text: c.who },
-      rightId: c.right === 'আপনি' ? apni : tumi, wrongIds: [c.right === 'আপনি' ? tumi : apni],
+      rightId: c.right === 'آپ' ? apni : tumi, wrongIds: [c.right === 'آپ' ? tumi : apni],
     }))
   } else {
     polite = politeOlder.map((c) => {
       const mk = (x) =>
-        add({ id: `sent:polite:${x.bn}`, kind: 'sentence', section: 'Family · আপনি or তুমি? (8–12)', group: 'fam-polite', bn: x.bn, roman: x.roman, en: x.en, tokens: x.bn.split(' ') })
+        add({ id: `sent:polite:${x.bn}`, kind: 'sentence', section: 'Family · آپ or تم? (8–12)', group: 'fam-polite', bn: x.bn, roman: x.roman, en: x.en, tokens: x.bn.split(' ') })
       const rightId = c.existing ? `sent:${c.right.bn}` : mk(c.right)
       const wrongIds = c.wrong.map((w) => (c.existing ? `sent:${w.bn}` : mk(w)))
       return { title: c.title, stem: { art: c.art }, rightId, wrongIds }
@@ -168,7 +161,7 @@ teenSentenceGroups.forEach((g) => {
   )
 })
 
-// 18+: work, bank, health, politics, economy, culture, and the two-Bengals vocabulary
+// 18+: vocabulary for adult life
 adultWordCategories.forEach((c) => {
   if (wordIdsByCat[c.key]) throw new Error(`word category "${c.key}" already exists`)
   categoryMeta[c.key] = { title: c.title, emoji: c.emoji, visual: false, note: c.note }
@@ -184,7 +177,7 @@ adultSentenceGroups.forEach((g) => {
   )
 })
 
-// Perfect / future patterns: tense -> verb -> [আমি, তুমি, আপনি] form ids
+// Perfect / future patterns: tense -> verb -> [میں, تم, آپ] form ids
 export const formIdsByTense = { perfect: {}, future: {} }
 tenseVerbs.forEach((v) => {
   ;['perfect', 'future'].forEach((tense) => {
@@ -259,12 +252,12 @@ stories.forEach((st) => {
   })
 })
 
-// ---- Explore Bangladesh: each region's words (cities + local vocabulary) and its reading lines ------------------------------
+// ---- Explore Pakistan: each region's words (cities + local vocabulary) and its reading lines ------------------------------
 export const exploreCats = {}
 exploreRegions.forEach((r) => {
   const cat = `x-${r.id}`
   const section = `Explore · ${r.name}`
-  categoryMeta[cat] = { title: `${r.name}: places & words`, emoji: r.emoji, visual: false, note: `Words from ${r.name} division — its cities first, then the things it is known for.` }
+  categoryMeta[cat] = { title: `${r.name}: places & words`, emoji: r.emoji, visual: false, note: `Words from ${r.name} — its cities first, then the things it is known for.` }
   const words = [
     ...r.cities.map((c) => ({ bn: c.bn, roman: c.roman, en: `${c.name} (a city)`, emoji: c.emoji })),
     ...r.cities.flatMap((c) => c.words),

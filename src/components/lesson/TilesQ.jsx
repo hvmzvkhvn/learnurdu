@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import Face from './Face'
 import Prompt from './Prompt'
 import Speaker from '../Speaker'
-import { shuffle } from '../../curriculum/text'
+import { shuffle, hasUrdu } from '../../curriculum/text'
 import { speak } from '../../audio/audio'
 
 export default function TilesQ({ ex, onSolved, onWrong }) {
@@ -44,14 +44,17 @@ export default function TilesQ({ ex, onSolved, onWrong }) {
     if (!solved && placed.length < need) setPlaced((p) => p.filter((k) => k !== i))
   }
 
+  const dir = ex.tiles.some(hasUrdu) ? 'rtl' : undefined
+
   return (
     <div>
       <Prompt text={ex.title} />
       <div className="card mb-5 flex min-h-[7rem] flex-col items-center justify-center gap-2">
         <Face f={ex.stem} big />
-        <Speaker text={ex.say} label="Hear it in Bangla" />
+        <Speaker text={ex.say} label="Hear it in Urdu" />
       </div>
       <div
+        dir={dir}
         className={`mb-5 flex min-h-[5.75rem] ${ex.compact ? 'flex-col items-stretch' : 'flex-wrap items-center justify-center'} gap-2 rounded-2xl border-4 border-dashed p-3 ${
           solved ? 'border-success bg-success/10' : 'border-primary/20 bg-white'
         }`}
@@ -61,21 +64,21 @@ export default function TilesQ({ ex, onSolved, onWrong }) {
             key={i}
             type="button"
             onClick={() => remove(i)}
-            className={`rounded-xl bg-primary px-3 py-2 font-bangla font-bold text-white shadow ${ex.compact ? 'w-full text-left text-lg' : 'text-2xl'}`}
+            className={`rounded-xl bg-primary px-3 py-2 font-urdu font-bold text-white shadow ${ex.compact ? 'w-full text-start text-lg' : 'text-2xl'}`}
           >
             {ex.tiles[i]}
           </button>
         ))}
       </div>
-      <div className={`flex gap-2 ${ex.compact ? 'flex-col' : 'flex-wrap items-center justify-center'}`}>
+      <div dir={dir} className={`flex gap-2 ${ex.compact ? 'flex-col' : 'flex-wrap items-center justify-center'}`}>
         {order.map((i) => (
           <button
             key={i}
             type="button"
             onClick={() => place(i)}
             disabled={placed.includes(i)}
-            className={`rounded-xl border-4 border-primary/20 bg-white px-3 py-2 font-bangla font-bold text-primary shadow-sm transition active:scale-95 ${
-              ex.compact ? 'w-full text-left text-lg' : 'text-2xl'
+            className={`rounded-xl border-4 border-primary/20 bg-white px-3 py-2 font-urdu font-bold text-primary shadow-sm transition active:scale-95 ${
+              ex.compact ? 'w-full text-start text-lg' : 'text-2xl'
             } ${placed.includes(i) ? 'opacity-20' : ''}`}
           >
             {ex.tiles[i]}

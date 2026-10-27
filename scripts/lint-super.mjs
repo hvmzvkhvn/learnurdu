@@ -1,5 +1,5 @@
 // Checks every Super challenge set:
-//   - each item has Bangla + English and no transliteration
+//   - each item has Urdu + English and no transliteration
 //   - every word is one the learner has already met by the end of that unit (same track) — endings like -র, -কে, -তে
 //     are forgiven, so "বাড়িতে" is fine if "বাড়ি" was taught
 //   - script-unit sets (set.script = true) use only letters, signs and conjuncts taught so far
@@ -62,7 +62,7 @@ for (const [trackKey, track] of Object.entries(tracks)) {
       if (!bn || !en) here(`incomplete item ${JSON.stringify([bn, en])}`)
       if (seen.has(bn)) here(`duplicate: ${bn}`)
       seen.add(bn)
-      if (/[A-Za-z]/.test(bn)) here(`Latin letters in Bangla: ${bn}`)
+      if (/[A-Za-z]/.test(bn)) here(`Latin letters in Urdu: ${bn}`)
       if (/[Ѐ-ӿ]/.test(bn + en)) here(`stray Cyrillic: ${bn} / ${en}`)
       if (set.script) {
         const bad = [...clean(bn)].filter((ch) => ch !== ' ' && !taughtChars.has(ch) && !'্‌‍'.includes(ch))

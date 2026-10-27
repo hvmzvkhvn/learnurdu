@@ -2,14 +2,15 @@ import { useEffect, useRef, useState } from 'react'
 import Face from './Face'
 import Prompt from './Prompt'
 import Speaker from '../Speaker'
-import BengaliKeyboard from './BengaliKeyboard'
+import UrduKeyboard from './UrduKeyboard'
 import { speak } from '../../audio/audio'
 import { splitClusters } from '../../curriculum/text'
 
-// Compare after Unicode decomposition so ড় typed as one character or two both match; ignore spaces and joiners.
-const norm = (s) => s.normalize('NFD').replace(/[\s‌‍।,?!"“”.\-—]/g, '')
+// Compare ignoring vowel marks (aerab), spaces and punctuation, and treat Arabic-keyboard variants (ي ك ه) as their Urdu letters.
+const norm = (s) =>
+  s.normalize('NFC').replace(/[\u064B-\u065F\u0670]/g, '').replace(/ي|ى/g, 'ی').replace(/ك/g, 'ک').replace(/ه/g, 'ہ').replace(/[\s\u200c\u200d۔،؟?!.,"“”\-—]/g, '')
 
-/** Hear the word (and see its meaning), then type it in Bangla. */
+/** Hear the word (and see its meaning), then type it in Urdu. */
 export default function TypeQ({ ex, onSolved, onWrong, onTyped }) {
   const [value, setValue] = useState('')
   const [hints, setHints] = useState(0)
@@ -49,7 +50,7 @@ export default function TypeQ({ ex, onSolved, onWrong, onTyped }) {
 
       <div className={`mb-3 flex items-center gap-2 ${shake ? 'animate-shake' : ''}`}>
         <input
-          lang="bn"
+          lang="ur" dir="rtl"
           inputMode="none"
           autoComplete="off"
           autoCapitalize="none"
@@ -59,7 +60,7 @@ export default function TypeQ({ ex, onSolved, onWrong, onTyped }) {
           onChange={(e) => setValue(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && check()}
           placeholder="Type here…"
-          className={`input-field !py-3 text-center font-bangla !text-3xl font-bold ${solved ? '!border-success !bg-success/10' : ''}`}
+          className={`input-field !py-3 text-center font-urdu !text-3xl font-bold ${solved ? '!border-success !bg-success/10' : ''}`}
         />
       </div>
 
@@ -75,7 +76,7 @@ export default function TypeQ({ ex, onSolved, onWrong, onTyped }) {
               Check
             </button>
           </div>
-          <BengaliKeyboard onKey={(c) => setValue((v) => v + c)} onBackspace={() => setValue((v) => Array.from(v).slice(0, -1).join(''))} onSpace={() => setValue((v) => v + ' ')} />
+          <UrduKeyboard onKey={(c) => setValue((v) => v + c)} onBackspace={() => setValue((v) => Array.from(v).slice(0, -1).join(''))} onSpace={() => setValue((v) => v + ' ')} />
         </>
       )}
     </div>

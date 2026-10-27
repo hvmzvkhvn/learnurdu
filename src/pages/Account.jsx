@@ -6,7 +6,7 @@ import { tracks } from '../curriculum/tracks'
 import { useTrack } from '../state/persist'
 import { addLearner, deleteAccount, hasLocalProgress, listLearners, push, pull, removeLearner, renameLearner, selectLearner, signIn, signOut, signUp, useSync } from '../sync/engine'
 
-const TRACK_KEYS = ['young', 'older', 'teen', 'senior', 'adult']
+const TRACK_KEYS = ['young', 'older']
 
 const ago = (t) => {
   if (!t) return ''
@@ -146,7 +146,7 @@ function Manage({ sync }) {
     const data = { exported: new Date().toISOString(), email: sync.email, learners: await listLearners() }
     const a = document.createElement('a')
     a.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }))
-    a.download = 'learn-bangla-my-data.json'
+    a.download = 'learn-urdu-my-data.json'
     a.click()
   }
   const out = async () => {

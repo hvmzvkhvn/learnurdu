@@ -13,7 +13,7 @@ export const booksFor = (trackKey) => (trackKey === 'young' ? youngBooks : older
 export const hasTimeline = (trackKey) => trackKey === 'senior' || trackKey === 'adult'
 export const bookById = (trackKey, id) => booksFor(trackKey).find((b) => b.id === id)
 
-/** Every Bangla line in the Playbook (for the audio build and the /review page). */
+/** Every Urdu line in the Playbook (for the audio build and the /review page). */
 export function allLines() {
   const out = []
   const book = (group, b) => b.pages.forEach((pg) => out.push({ group, bn: pg.bn, roman: pg.roman, en: pg.en }))
