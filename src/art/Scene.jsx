@@ -7,7 +7,7 @@ import { scaleFor, spriteFor } from './sprites'
 //   scene = { bg: 'village', time: 'day' | 'evening' | 'night' | 'rain', items: [ … ], noLuminary?: true (no painted sun / moon, when a sun or moon is an item) }
 //   item  = { e: '🏠', x: 20, y: 62, s: 56, flip?, anim?: 'bob'|'sway'|'drift'|'pulse', shadow?: false, z?: n }
 //         | { t: '1947', x, y, s, c?: colour, w?: weight }            (big text)
-//         | { map: 'sylhet', x, y, w }                                (Bangladesh, one division highlighted)
+//         | { map: 'sylhet', x, y, w }                                (Pakistan, one region highlighted)
 //   x and y are percentages of the picture; s is the emoji size in picture units (the picture is 400 × 260).
 const W = 400
 const H = 260
@@ -260,6 +260,9 @@ function Item({ it }) {
       <g transform={`translate(${x - (MAP.width * k) / 2} ${y - (MAP.height * k) / 2}) scale(${k})`}>
         {Object.entries(MAP.divisions).map(([id, d]) => (
           <path key={id} d={d.d} fill={id === it.map ? '#F4A324' : '#EDE3C8'} stroke="#fff" strokeWidth="3" strokeLinejoin="round" />
+        ))}
+        {Object.entries(MAP.other ?? {}).map(([id, d]) => (
+          <path key={id} d={d.d} fill="#E2DDD0" stroke="#fff" strokeWidth="3" strokeLinejoin="round" />
         ))}
       </g>
     )

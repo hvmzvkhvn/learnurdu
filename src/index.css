@@ -64,4 +64,4 @@
 
 /* Urdu text: each run takes its direction from its first letter (Urdu → right-to-left), and Nastaliq needs taller lines. */
 .font-urdu { unicode-bidi: plaintext; line-height: 1.9; }
-.font-urdu.leading-none, .font-urdu.leading-tight, .font-urdu.leading-snug { line-height: 1.6; }
+.font-urdu.leading-none, .font-urdu.leading-tight, .font-urdu.leading-snug { line-height: 1.8; }

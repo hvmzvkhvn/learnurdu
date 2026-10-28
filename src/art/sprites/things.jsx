@@ -254,6 +254,17 @@ def('🇧🇩', () => (
     <circle cx="48" cy="40" r="17" fill={C.red} stroke="none" />
   </g>
 ))
+def('🇵🇰', () => (
+  <g>
+    <path d="M18 8 V94" stroke={C.brown} strokeWidth="4" strokeLinecap="round" />
+    <path d="M18 12 H88 V68 H18z" fill={C.white} {...st} />
+    <path d="M34 12 H88 V68 H34z" fill="#01411C" stroke="none" />
+    <path d="M18 12 H88 V68 H18z" fill="none" {...st} />
+    <circle cx="60" cy="42" r="15" fill={C.white} stroke="none" />
+    <circle cx="65" cy="38" r="13" fill="#01411C" stroke="none" />
+    <path d="M72 27 l1.8 4.6 4.9 0.3 -3.8 3.1 1.2 4.8 -4.1 -2.7 -4.1 2.7 1.2 -4.8 -3.8 -3.1 4.9 -0.3z" fill={C.white} stroke="none" />
+  </g>
+))
 // ---- clothes ---------------------------------------------------------------------------------------------------
 def('👗', () => (
   <g>

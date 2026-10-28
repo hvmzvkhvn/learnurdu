@@ -25,7 +25,7 @@ Poems quoted are public domain only (Iqbal, Ghalib, Mir, a folk rhyme); Faiz and
 
 Also working: XP, streaks and games, tracing (auto-scored), Review today (spaced repetition), Say it, the voice studio, the save code, offline audio and install-as-an-app.
 
-**Still to write:** the Playbook (picture books, Look & Learn, Build the scene, and the 16+ region storyboards — `src/data/playbook/*`, switched off in `features.js`).
+**Playbook** (`src/data/playbook/`, all ages): 6 picture books for 5–7 and 6 for 8–15 (Sara's morning, a Lahore rickshaw, Independence Day, palla fish on the Indus, Karachi's beach…), Look & Learn (village, room, market, classroom, city), Build the scene, and for 16+ a storyboard for every Explore region plus "The road to 1947" timeline. The art reuses Learn Bangla's scene engine, with a Pakistani flag and an auto-rickshaw added (`src/art/sprites/`).
 
 ## How the curriculum is organised
 

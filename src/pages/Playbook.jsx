@@ -95,7 +95,7 @@ export default function Playbook() {
       </Section>
 
       {feat.storyboards && (
-        <Section title="🎞️ The story of Bangladesh" hint="Storyboards of the 1905–1971 road to independence. Each division’s storyboard opens from its card on Explore.">
+        <Section title="🎞️ The story of Pakistan" hint="Storyboards of the road to independence, 1857–1947. Each region’s storyboard opens from its card on Explore.">
           <Tile to="/playbook/story/timeline" scene={timelineStory.panels[2].scene} id="t-timeline" title={{ bn: 'آزادی کا سفر', en: timelineStory.title }} sub={`${timelineStory.panels.length} panels`} done={Boolean(read['story:timeline'])} />
           <Link to="/explore" className="flex flex-col items-center justify-center rounded-3xl bg-secondary/10 px-3 py-4 text-center font-extrabold text-secondary">
             <span className="text-4xl">🗺️</span>

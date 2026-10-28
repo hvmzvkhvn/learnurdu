@@ -147,17 +147,17 @@ def('🚗', () => (
     <circle cx="72" cy="70" r="10" fill={O} /><circle cx="72" cy="70" r="4" fill={C.steel} />
   </g>
 ))
-// the Bangladeshi cycle rickshaw: rear seat under a bright hood, one wheel at the front
+// the Pakistani auto-rickshaw: a three-wheeler with a rounded canvas hood, a driver's cab and a back seat
 const Rickshaw = () => (
   <g>
-    <circle cx="22" cy="72" r="15" fill="none" stroke={O} strokeWidth="3.5" /><circle cx="22" cy="72" r="2.5" fill={O} />
-    <circle cx="70" cy="72" r="15" fill="none" stroke={O} strokeWidth="3.5" /><circle cx="70" cy="72" r="2.5" fill={O} />
-    <path d="M22 72 L38 56 H58 L70 72 M38 56 L30 72 H58" stroke={C.green} strokeWidth="3.5" fill="none" strokeLinejoin="round" />
-    <rect x="42" y="38" width="38" height="8" rx="3" fill={C.red} {...st} />
-    <path d="M44 38 Q60 6 80 30 L80 40 H44Z" fill={C.yellow} {...st} />
-    <path d="M48 36 Q60 14 74 30" stroke={C.red} strokeWidth="3" fill="none" />
-    <path d="M42 46 H82 V58 H42z" fill={C.pink} {...st} />
-    <path d="M30 46 q8 -4 14 0" stroke={O} strokeWidth="3" fill="none" strokeLinecap="round" />
+    <path d="M14 70 Q12 34 40 26 H74 Q88 28 88 46 V70 Z" fill={C.green} {...st} />
+    <path d="M18 44 Q22 32 40 30 H52 V56 H18 Z" fill={C.sky} {...st} />
+    <path d="M56 32 H74 Q84 34 84 46 V56 H56 Z" fill={C.cream} {...st} />
+    <path d="M14 58 H88" stroke={C.yellow} strokeWidth="4" />
+    <path d="M30 64 l4 -4 l4 4 l-4 4z M66 64 l4 -4 l4 4 l-4 4z" fill={C.red} stroke="none" />
+    <path d="M10 70 H92" stroke={O} strokeWidth="3" strokeLinecap="round" />
+    <circle cx="22" cy="78" r="10" fill={C.dgrey} {...st} /><circle cx="22" cy="78" r="3" fill={C.grey} />
+    <circle cx="76" cy="78" r="10" fill={C.dgrey} {...st} /><circle cx="76" cy="78" r="3" fill={C.grey} />
   </g>
 )
 def('🛺', Rickshaw)

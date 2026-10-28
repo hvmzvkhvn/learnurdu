@@ -17,27 +17,27 @@
 export const FEATURES = {
   young: {
     xp: true, playful: true, garden: true, gentleStreak: true,
-    arcade: ['memory', 'tap', 'daily'], explore: false, playbook: false, storyboards: false, stories: false, treasure: true, boss: false, listenType: false, blitzSeconds: 0,
+    arcade: ['memory', 'tap', 'daily'], explore: false, playbook: true, storyboards: false, stories: false, treasure: true, boss: false, listenType: false, blitzSeconds: 0,
     trace: { letters: 'all', signs: false, syllables: false, words: 1, digits: false },
   },
   older: {
     xp: true, playful: true, garden: false, gentleStreak: true,
-    arcade: ['daily', 'blitz', 'memory', 'type'], explore: false, playbook: false, storyboards: false, stories: true, treasure: false, boss: false, listenType: true, blitzSeconds: 90,
+    arcade: ['daily', 'blitz', 'memory', 'type'], explore: false, playbook: true, storyboards: false, stories: true, treasure: false, boss: false, listenType: true, blitzSeconds: 90,
     trace: { letters: 2, signs: true, syllables: false, words: 1, digits: false },
   },
   teen: {
     xp: true, playful: false, garden: false, gentleStreak: false,
-    arcade: ['daily', 'blitz', 'memory', 'type', 'geo'], explore: true, playbook: false, storyboards: false, stories: true, treasure: false, boss: true, listenType: true, blitzSeconds: 60,
+    arcade: ['daily', 'blitz', 'memory', 'type', 'geo'], explore: true, playbook: true, storyboards: false, stories: true, treasure: false, boss: true, listenType: true, blitzSeconds: 60,
     trace: { letters: 'all', signs: true, syllables: true, words: 2, digits: true },
   },
   senior: {
     xp: true, playful: false, garden: false, gentleStreak: false,
-    arcade: ['daily', 'blitz', 'memory', 'type', 'geo'], explore: true, playbook: false, storyboards: false, stories: true, treasure: false, boss: true, listenType: true, blitzSeconds: 60,
+    arcade: ['daily', 'blitz', 'memory', 'type', 'geo'], explore: true, playbook: true, storyboards: true, stories: true, treasure: false, boss: true, listenType: true, blitzSeconds: 60,
     trace: { letters: 'all', signs: true, syllables: true, words: 2, digits: true },
   },
   adult: {
     xp: true, playful: false, garden: false, gentleStreak: false,
-    arcade: ['daily', 'blitz', 'memory', 'type', 'geo'], explore: true, playbook: false, storyboards: false, stories: true, treasure: false, boss: true, listenType: true, blitzSeconds: 60,
+    arcade: ['daily', 'blitz', 'memory', 'type', 'geo'], explore: true, playbook: true, storyboards: true, stories: true, treasure: false, boss: true, listenType: true, blitzSeconds: 60,
     trace: { letters: 'all', signs: true, syllables: true, words: 2, digits: true },
   },
 }
