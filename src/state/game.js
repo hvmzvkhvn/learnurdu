@@ -49,7 +49,7 @@ export const BADGES = [
   { id: 'memory', emoji: '🐘', title: 'Elephant Memory', desc: 'Win Memory Match in 8 moves or fewer', test: (g) => g.stats.memoryBest > 0 && g.stats.memoryBest <= 8 },
   { id: 'boss', emoji: '⚔️', title: 'Boss Slayer', desc: 'Beat a boss level', test: (g) => g.stats.bosses >= 1 },
   { id: 'daily3', emoji: '📅', title: 'Regular', desc: 'Complete 3 daily challenges', test: (g) => g.stats.dailyDone >= 3 },
-  { id: 'explorer', emoji: '🧭', title: 'Explorer', desc: 'Stamp all 8 divisions of Bangladesh', test: (g) => Object.keys(g.stats.stamps ?? {}).filter((k) => k.startsWith('r:')).length >= 8 },
+  { id: 'explorer', emoji: '🧭', title: 'Explorer', desc: 'Stamp all 6 regions of Pakistan', test: (g) => Object.keys(g.stats.stamps ?? {}).filter((k) => k.startsWith('r:')).length >= 6 },
   { id: 'traveller', emoji: '🗺️', title: 'Traveller', desc: 'Visit 16 cities on the map', test: (g) => Object.keys(g.stats.stamps ?? {}).filter((k) => k.startsWith('c:')).length >= 16 },
   { id: 'geo', emoji: '📍', title: 'Map Master', desc: 'Score 9 or more in a Map Quiz', test: (g) => (g.stats.geoBest ?? 0) >= 9 },
   { id: 'super1', emoji: '🦸', title: 'Super!', desc: 'Pass a Super challenge (2 stars or more)', test: (g) => Object.keys(g.stats.supers ?? {}).length >= 1 },

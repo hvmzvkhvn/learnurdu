@@ -8,7 +8,7 @@ import { useRoman } from '../../state/roman'
 // Words inside a sentence can be tapped to hear them one at a time.
 function TappableWords({ tokens }) {
   return (
-    <div className="mt-3 flex flex-wrap justify-center gap-2">
+    <div dir="rtl" className="mt-3 flex flex-wrap justify-center gap-2">
       {tokens.map((t, i) => (
         <button
           key={i}

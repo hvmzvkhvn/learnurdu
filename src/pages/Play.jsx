@@ -19,7 +19,7 @@ const GAMES = {
   tap: { emoji: '👆', title: 'Tap the Picture', blurb: 'Listen, then tap the right picture. No timer — take your time!', color: 'bg-secondary text-white' },
   blitz: { emoji: '⚡', title: 'Word Blitz', blurb: 'Answer fast and build a combo before the clock runs out.', color: 'bg-primary text-white' },
   memory: { emoji: '🃏', title: 'Memory Match', blurb: 'Flip the cards and find the matching pairs.', color: 'bg-ink text-white' },
-  geo: { emoji: '📍', title: 'Map Quiz', blurb: 'Tap, guess and match places on the map of Bangladesh.', color: 'bg-secondary text-white' },
+  geo: { emoji: '📍', title: 'Map Quiz', blurb: 'Tap, guess and match places on the map of Pakistan.', color: 'bg-secondary text-white' },
   type: { emoji: '⌨️', title: 'Type It', blurb: 'Hear a word and type it in Urdu.', color: 'bg-success text-white' },
 }
 

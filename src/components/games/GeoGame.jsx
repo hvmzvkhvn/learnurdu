@@ -25,7 +25,7 @@ function makeQuestions(n = 10) {
   return shuffle(out)
 }
 
-/** Map Quiz: tap the division, find where a clue is from, or say which division a city belongs to. */
+/** Map Quiz: tap the region, find where a clue is from, or say which region a place belongs to. */
 export default function GeoGame({ onFinish }) {
   const qs = useMemo(() => makeQuestions(10), [])
   const [i, setI] = useState(0)
@@ -64,7 +64,7 @@ export default function GeoGame({ onFinish }) {
         <>
           <div className="mb-2 flex items-center justify-center gap-3 text-center">
             <div>
-              <p className="text-sm font-bold text-ink/60">Tap this division on the map</p>
+              <p className="text-sm font-bold text-ink/60">Tap this region on the map</p>
               <p className="font-urdu text-4xl font-extrabold text-primary">{q.region.bn}</p>
               <p className="text-sm text-ink/50">{q.region.name}</p>
             </div>
@@ -74,7 +74,7 @@ export default function GeoGame({ onFinish }) {
         </>
       )}
       {q.kind === 'clue' && (
-        <Choice title="Where am I?" sub="Listen, then pick the division." options={q.options} answer={answer} bad={bad} solved={solved} region={q.region}>
+        <Choice title="Where am I?" sub="Listen, then pick the region." options={q.options} answer={answer} bad={bad} solved={solved} region={q.region}>
           <div className="flex items-center justify-center gap-3 rounded-3xl bg-white p-4 shadow-sm">
             <span className="text-5xl">{q.line.emoji}</span>
             <p className="font-urdu text-2xl font-bold text-primary">{q.line.bn}</p>
@@ -84,7 +84,7 @@ export default function GeoGame({ onFinish }) {
         </Choice>
       )}
       {q.kind === 'city' && (
-        <Choice title="Which division is this city in?" options={q.options} answer={answer} bad={bad} solved={solved} region={q.region}>
+        <Choice title="Which region is this place in?" options={q.options} answer={answer} bad={bad} solved={solved} region={q.region}>
           <div className="flex items-center justify-center gap-3 rounded-3xl bg-white p-4 shadow-sm">
             <span className="text-5xl">{q.city.emoji}</span>
             <div className="text-center">

@@ -23,7 +23,7 @@ export default function Postcard({ ex }) {
         </span>
         <span className="text-3xl">{got ? '✅' : '📮'}</span>
       </div>
-      <p className="mt-3 text-sm leading-relaxed text-ink/80">Greetings from {c.name}, in {c.region.name} division! {c.fact}</p>
+      <p className="mt-3 text-sm leading-relaxed text-ink/80">Greetings from {c.name}, in {c.region.name}! {c.fact}</p>
       <div className="mt-3"><UrduLine s={c.line} /></div>
       {!got && <button type="button" onClick={collect} className="btn-secondary mt-3 w-full !py-3">Collect today's stamp</button>}
     </div>

@@ -10,7 +10,7 @@
 //   boss          a timed boss level at the end of a unit (ages 13–18)
 //   listenType    "listen and pick" and "type it in Urdu" exercises
 //   blitzSeconds  length of a Word Blitz round (0 = no timed games)
-//   explore       the Explore Bangladesh map (13+)
+//   explore       the Explore Pakistan map (13+)
 //   playbook      the Playbook tab: picture books, Look & Learn, Build the scene (all ages)
 //   storyboards   division storyboards on Explore + the 1905–1971 timeline (16+)
 //   trace         what gets traced: letters ('all' | n), signs, syllables, words (n per lesson), digits
@@ -27,17 +27,17 @@ export const FEATURES = {
   },
   teen: {
     xp: true, playful: false, garden: false, gentleStreak: false,
-    arcade: ['daily', 'blitz', 'memory', 'type', 'geo'], explore: false, playbook: false, storyboards: false, stories: false, treasure: false, boss: true, listenType: true, blitzSeconds: 60,
+    arcade: ['daily', 'blitz', 'memory', 'type', 'geo'], explore: true, playbook: false, storyboards: false, stories: true, treasure: false, boss: true, listenType: true, blitzSeconds: 60,
     trace: { letters: 'all', signs: true, syllables: true, words: 2, digits: true },
   },
   senior: {
     xp: true, playful: false, garden: false, gentleStreak: false,
-    arcade: ['daily', 'blitz', 'memory', 'type', 'geo'], explore: false, playbook: false, storyboards: false, stories: false, treasure: false, boss: true, listenType: true, blitzSeconds: 60,
+    arcade: ['daily', 'blitz', 'memory', 'type', 'geo'], explore: true, playbook: false, storyboards: false, stories: true, treasure: false, boss: true, listenType: true, blitzSeconds: 60,
     trace: { letters: 'all', signs: true, syllables: true, words: 2, digits: true },
   },
   adult: {
     xp: true, playful: false, garden: false, gentleStreak: false,
-    arcade: ['daily', 'blitz', 'memory', 'type', 'geo'], explore: false, playbook: false, storyboards: false, stories: false, treasure: false, boss: true, listenType: true, blitzSeconds: 60,
+    arcade: ['daily', 'blitz', 'memory', 'type', 'geo'], explore: true, playbook: false, storyboards: false, stories: true, treasure: false, boss: true, listenType: true, blitzSeconds: 60,
     trace: { letters: 'all', signs: true, syllables: true, words: 2, digits: true },
   },
 }

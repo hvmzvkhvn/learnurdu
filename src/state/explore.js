@@ -1,4 +1,4 @@
-// Explore Bangladesh: passport stamps (kept in the game stats, so they sync and travel in the save code) and region unlocking.
+// Explore Pakistan: passport stamps (kept in the game stats, so they sync and travel in the save code) and region unlocking.
 import { useCallback } from 'react'
 import { exploreRegions } from '../data/explore'
 import { allLessons } from '../curriculum/tracks'

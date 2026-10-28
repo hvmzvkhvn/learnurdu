@@ -5,10 +5,11 @@ import Speaker from '../Speaker'
 import UrduLine from './UrduLine'
 import ThenNow from './ThenNow'
 import { useRoman } from '../../state/roman'
+import { regionStoryboards } from '../../data/playbook'
 
 const SectionTitle = ({ children }) => <h3 className="mb-2 mt-5 text-sm font-extrabold uppercase tracking-wide text-ink/40">{children}</h3>
 
-/** The card that slides up when a division is tapped. What it shows deepens with the age track. */
+/** The card that slides up when a region is tapped. What it shows deepens with the age track. */
 export default function RegionSheet({ region: r, tier, ex, lessonId, onClose, onCity, activeCity }) {
   const [openCity, setOpenCity] = useState(null)
   const [romanOn] = useRoman()
@@ -38,7 +39,7 @@ export default function RegionSheet({ region: r, tier, ex, lessonId, onClose, on
           <span className="text-4xl">{r.emoji}</span>
           <span className="flex-1">
             <span className="block font-urdu text-3xl font-extrabold leading-none text-primary">{r.bn}</span>
-            <span className="block text-sm font-bold text-ink/50">{r.name} Division{romanOn ? ` · ${r.roman}` : ''}</span>
+            <span className="block text-sm font-bold text-ink/50">{r.name}{romanOn ? ` · ${r.roman}` : ''}</span>
           </span>
           <Speaker text={r.bn} size="md" label="Hear the name" />
           <button type="button" onClick={onClose} aria-label="Close" className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-lg font-extrabold text-ink/50 shadow">✕</button>
@@ -48,7 +49,7 @@ export default function RegionSheet({ region: r, tier, ex, lessonId, onClose, on
           <p className="text-xs font-extrabold uppercase tracking-wide opacity-70">📖 In English</p>
           <p className="mt-1 text-base leading-relaxed">{r.hook}</p>
         </div>
-        {(tier === 'senior' || tier === 'adult') && (
+        {(tier === 'senior' || tier === 'adult') && regionStoryboards[r.id] && (
           <Link to={`/playbook/story/${r.id}`} className="btn-secondary mt-3 w-full !py-3">▶ Watch the story of {r.name}</Link>
         )}
         <div className="mt-3"><UrduLine s={r.intro} size="text-2xl" /></div>

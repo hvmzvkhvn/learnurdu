@@ -144,7 +144,7 @@ for (const track of ['young', 'older']) {
 
 // ---- 13–18 tracks: conjuncts, vocabulary, sentences, tenses, poems, passages, scenes, stories --------------------
 export const conjunctIds = conjuncts.map((c) =>
-  add({ id: `letter:${c.letter}`, kind: 'letter', section: 'Conjuncts', bn: c.letter, roman: c.roman, art: c.example.emoji, example: c.example }),
+  add({ id: `letter:${c.letter}`, kind: 'letter', section: 'Joined letters', bn: c.letter, roman: c.roman, art: c.example.emoji, example: c.example }),
 )
 
 teenWordCategories.forEach((c) => {

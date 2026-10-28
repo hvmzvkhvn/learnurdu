@@ -9,9 +9,9 @@ export default function UrduLine({ s, emoji, size = 'text-xl' }) {
     <div className="flex items-start gap-3 rounded-2xl bg-white px-3 py-3 shadow-sm">
       {emoji && <span className="text-3xl">{emoji}</span>}
       <div className="flex-1">
-        <p className={`font-urdu font-bold leading-snug text-primary ${size}`}>
+        <p dir="rtl" className={`font-urdu font-bold leading-snug text-primary ${size}`}>
           {s.bn.split(' ').map((t, i) => (
-            <button key={i} type="button" onClick={() => speak(t, { force: true })} className="mr-1.5 rounded-lg px-0.5 transition active:scale-95 hover:bg-primary/10">
+            <button key={i} type="button" onClick={() => speak(t, { force: true })} className="me-1.5 rounded-lg px-0.5 transition active:scale-95 hover:bg-primary/10">
               {t}
             </button>
           ))}

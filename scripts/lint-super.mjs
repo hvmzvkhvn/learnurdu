@@ -23,7 +23,7 @@ const clean = (t) => t.replace(PUNCT, '').trim()
 const ENDINGS = ['وں', 'یں', 'یاں', 'ئیں', 'ے', 'ی', 'ا', 'و']
 // A few high-frequency function words are allowed in any sentence even if a unit never spelled them out
 // (and, but, so, this, that, very, a little, is/are, was, of, in, from, to, on…). Every content word must have been taught.
-const GLUE = new Set('اور لیکن تو یہ وہ بہت تھوڑا تھوڑی ہے ہیں ہوں ہو تھا تھی تھے کا کی کے میں سے کو پر نے بھی نہیں نہ ہی کہ کیا جب اب آج کل ساتھ لیے پھر ایک سب کچھ یہاں وہاں ہاں جی اپنا اپنی اپنے بھی مگر تک پاس ہوتا ہوتی ہوتے ہو گیا گئی گئے رہا رہی رہے آیا آئی کہا دی دیا'.split(' '))
+const GLUE = new Set('اور لیکن تو یہ وہ بہت تھوڑا تھوڑی ہے ہیں ہوں ہو تھا تھی تھے کا کی کے میں سے کو پر نے بھی نہیں نہ ہی کہ کیا جب اب آج کل ساتھ لیے پھر ایک سب کچھ یہاں وہاں ہاں جی اپنا اپنی اپنے بھی مگر تک پاس ہوتا ہوتی ہوتے ہو گیا گئی گئے رہا رہی رہے آیا آئی کہا دی دیا بعد پہلے مجھے چاہیے'.split(' '))
 // Verb forms count as taught when the "to ___" form was: پیتے / پیتی / پیو → پینا, دیکھتے → دیکھنا
 const VERB_ENDINGS = ['تا', 'تی', 'تے', 'یں', 'ؤ', 'و', 'ے', 'ا', 'ی']
 const stems = (w) => {
@@ -31,7 +31,8 @@ const stems = (w) => {
   for (const e of VERB_ENDINGS) if (w.length > e.length && w.endsWith(e)) out.add(w.slice(0, -e.length) + 'نا')
   // gender / oblique forms of -ا and -ہ words: میری میرے → میرا, کالی → کالا, ستارے → ستارہ
   if (/[یے]$/.test(w)) out.add(w.slice(0, -1) + 'ا')
-  if (w.endsWith('ے')) out.add(w.slice(0, -1) + 'ہ')
+  if (w.endsWith('ے')) out.add(w.slice(0, -1) + 'ہ').add(w.slice(0, -1) + 'یہ')
+  out.add(w + 'نا') // a bare verb stem: جیت → جیتنا
   for (const e of ENDINGS) if (w.length > e.length + 1 && w.endsWith(e)) out.add(w.slice(0, -e.length))
   return out
 }
@@ -50,7 +51,7 @@ for (const [trackKey, track] of Object.entries(tracks)) {
         if (!it || it.id.startsWith('super:')) continue
         if (it.kind === 'letter' || it.kind === 'sign' || it.kind === 'syllable') for (const ch of it.bn) taughtChars.add(ch)
         const toks = it.tokens && it.kind !== 'word' ? it.tokens : [it.bn, ...it.bn.split(' ')]
-        for (const t of toks) for (const s of stems(clean(t))) taughtWords.add(s)
+        for (const t of toks) for (const part of [t, ...t.split(' ')]) for (const s of stems(clean(part))) taughtWords.add(s)
         if (it.kind === 'word') for (const ch of it.bn) taughtChars.add(ch)
       }
     }
@@ -74,7 +75,7 @@ for (const [trackKey, track] of Object.entries(tracks)) {
         const bad = [...clean(bn)].filter((ch) => ch !== ' ' && !taughtChars.has(ch) && !'\u200c\u200d'.includes(ch))
         if (bad.length) here(`letters not taught yet (${[...new Set(bad)].join(' ')}): ${bn}`)
       } else {
-        const unknown = bn.split(' ').map(clean).filter(Boolean).filter((w) => !GLUE.has(w) && ![...stems(w)].some((s) => taughtWords.has(s)))
+        const unknown = bn.split(' ').map(clean).filter(Boolean).filter((w) => !/^[۰-۹0-9]+$/.test(w) && !GLUE.has(w) && ![...stems(w)].some((s) => taughtWords.has(s)))
         if (unknown.length) {
           unknownTotal += unknown.length
           console.log(`${strict ? 'ERROR' : 'note '} ${trackKey}/${u.id}: not taught yet → ${unknown.join(' ')}   in: ${bn}`)
