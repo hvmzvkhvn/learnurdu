@@ -1,6 +1,6 @@
 // Explore Pakistan — four provinces, Gilgit-Baltistan and the capital, for the 13–15, 16–18 and 18+ tracks.
 //
-// Every region follows the same card: Famous for · Then · Now · Made here · 4 places.
+// Every region follows the same card: Famous for · Then · Now · Made here · its places (Punjab has 7, the rest 4).
 // English leads (hook, history, recent) and a short Urdu line follows each part, so learners read real Urdu in context.
 // Facts are kept few and checkable; recent developments carry the year; figures are rounded and hedged.
 // Contested matters (Kashmir, Balochistan's politics) are described neutrally. Urdu is reviewed on /review like everything else.
@@ -50,6 +50,12 @@ export const exploreRegions = [
         W('ولی', 'wali', 'saint', '🕌'), W('حلوہ', 'halwa', 'halwa (a sweet)', '🍮'), W('گرمی', 'garmi', 'heat', '☀️')]),
       city('sialkot', 'Sialkot', 'سیالکوٹ', 'siyaalkoṭ', '⚽', 74.53, 32.49, "Makes many of the world's hand-stitched footballs, and is Allama Iqbal's birthplace.", S('علامہ اقبال سیالکوٹ میں پیدا ہوئے۔', 'allaama iqbaal siyaalkoṭ mein paida hue.', 'Allama Iqbal was born in Sialkot.'), [
         W('فٹ بال', 'fuṭ baal', 'football', '⚽'), W('سلائی', 'silaai', 'stitching', '🪡'), W('شاعر', "shaa'ir", 'poet', '✒️')]),
+      city('rawalpindi', 'Rawalpindi', 'راولپنڈی', 'raawalpinḍi', '🚌', 73.05, 33.60, "Islamabad's older twin city, right next door, with busy bazaars like Raja Bazaar.", S('راولپنڈی اسلام آباد کا جڑواں شہر ہے۔', 'raawalpinḍi islaamaabaad ka juṛwaan shehar hai.', 'Rawalpindi is the twin city of Islamabad.'), [
+        W('جڑواں', 'juṛwaan', 'twin', '👯'), W('بازار', 'baazaar', 'market', '🛒'), W('بس', 'bas', 'bus', '🚌')]),
+      city('murree', 'Murree', 'مری', 'mari', '🌲', 73.39, 33.91, 'A hill station about an hour from Islamabad, where families go to escape the summer heat and see snow in winter.', S('مری میں سردیوں میں برف پڑتی ہے۔', 'mari mein sardiyon mein barf paṛti hai.', 'Snow falls in Murree in winter.'), [
+        W('برف', 'barf', 'snow', '❄️'), W('پہاڑی', 'pahaaṛi', 'hill', '⛰️'), W('سیر', 'sair', 'outing, trip', '🚶')]),
+      city('taxila', 'Taxila', 'ٹیکسلا', 'ṭaiksila', '🏺', 72.80, 33.75, 'Ruins of an ancient city of learning from the Gandhara era, near Islamabad; a UNESCO World Heritage Site.', S('ٹیکسلا میں پرانے کھنڈرات ہیں۔', 'ṭaiksila mein puraane khanḍaraat hain.', 'There are old ruins in Taxila.'), [
+        W('عجائب گھر', "ajaa'ib ghar", 'museum', '🏛️'), W('مجسمہ', 'mujassama', 'statue', '🗿'), W('علم', 'ilm', 'knowledge, learning', '📚')]),
     ],
   },
   // ------------------------------------------------------------------------------------------------ Sindh
@@ -97,7 +103,7 @@ export const exploreRegions = [
   // ------------------------------------------------------------------------------------------------ Islamabad
   {
     id: 'islamabad', name: 'Islamabad', bn: 'اسلام آباد', roman: 'islaamaabaad', emoji: '🏛️', color: '#8A63B8', unlock: 0,
-    hook: 'A capital built from scratch. Islamabad was planned in the 1960s at the foot of the green Margalla Hills, next to the old city of Rawalpindi. Its white Faisal Mosque is one of the largest mosques in the world.',
+    hook: 'A capital built from scratch. Islamabad was planned in the 1960s at the foot of the green Margalla Hills, next to the old Punjabi city of Rawalpindi. Its white Faisal Mosque is one of the largest mosques in the world.',
     intro: S('اسلام آباد پاکستان کا دارالحکومت ہے۔', 'islaamaabaad paakistaan ka daar-ul-hukoomat hai.', "Islamabad is Pakistan's capital."),
     famous: [
       F('🕌', S('فیصل مسجد بہت بڑی ہے۔', 'faisal masjid bohat baṛi hai.', 'The Faisal Mosque is very big.')),
@@ -128,12 +134,12 @@ export const exploreRegions = [
     cities: [
       city('islamabad', 'Islamabad', 'اسلام آباد', 'islaamaabaad', '🏛️', 73.05, 33.69, 'The planned capital, laid out in lettered sectors such as F-6 and G-9.', S('اسلام آباد ایک صاف شہر ہے۔', 'islaamaabaad ek saaf shehar hai.', 'Islamabad is a clean city.'), [
         W('دارالحکومت', 'daar-ul-hukoomat', 'capital city', '🏛️'), W('سیکٹر', 'sekṭar', 'sector', '🗺️'), W('سفارت خانہ', 'sifaarat khaana', 'embassy', '🏢')]),
-      city('rawalpindi', 'Rawalpindi', 'راولپنڈی', 'raawalpinḍi', '🚌', 73.05, 33.60, "Islamabad's older twin city next door (in Punjab), with busy bazaars like Raja Bazaar.", S('راولپنڈی اسلام آباد کا جڑواں شہر ہے۔', 'raawalpinḍi islaamaabaad ka juṛwaan shehar hai.', 'Rawalpindi is the twin city of Islamabad.'), [
-        W('جڑواں', 'juṛwaan', 'twin', '👯'), W('بازار', 'baazaar', 'market', '🛒'), W('بس', 'bas', 'bus', '🚌')]),
-      city('murree', 'Murree', 'مری', 'mari', '🌲', 73.39, 33.91, 'A hill station about an hour away (in Punjab), where families go to escape the summer heat and see snow in winter.', S('مری میں سردیوں میں برف پڑتی ہے۔', 'mari mein sardiyon mein barf paṛti hai.', 'Snow falls in Murree in winter.'), [
-        W('برف', 'barf', 'snow', '❄️'), W('پہاڑی', 'pahaaṛi', 'hill', '⛰️'), W('سیر', 'sair', 'outing, trip', '🚶')]),
-      city('taxila', 'Taxila', 'ٹیکسلا', 'ṭaiksila', '🏺', 72.80, 33.75, 'Ruins of an ancient city of learning from the Gandhara era, a UNESCO World Heritage Site (in Punjab).', S('ٹیکسلا میں پرانے کھنڈرات ہیں۔', 'ṭaiksila mein puraane khanḍaraat hain.', 'There are old ruins in Taxila.'), [
-        W('عجائب گھر', "ajaa'ib ghar", 'museum', '🏛️'), W('مجسمہ', 'mujassama', 'statue', '🗿'), W('علم', 'ilm', 'knowledge, learning', '📚')]),
+      city('faisalmosque', 'Faisal Mosque', 'فیصل مسجد', 'faisal masjid', '🕌', 73.04, 33.73, 'Finished in 1986 and shaped like a desert tent; it can hold around a hundred thousand worshippers in its halls and courtyards.', S('فیصل مسجد کے چار اونچے مینار ہیں۔', 'faisal masjid ke chaar oonche minaar hain.', 'The Faisal Mosque has four tall minarets.'), [
+        W('مینار', 'minaar', 'minaret', '🗼'), W('صحن', 'sehan', 'courtyard', '🏛️'), W('نمازی', 'namaazi', 'worshipper', '🧎')]),
+      city('margalla', 'Margalla Hills', 'مارگلہ', 'maargala', '⛰️', 73.06, 33.76, 'Wooded hills with walking trails right behind the city; the Daman-e-Koh viewpoint looks out over Islamabad.', S('مارگلہ پر لوگ سیر کرتے ہیں۔', 'maargala par log sair karte hain.', 'People go walking in the Margallas.'), [
+        W('پگڈنڈی', 'pagḍanḍi', 'footpath, trail', '🥾'), W('بندر', 'bandar', 'monkey', '🐒'), W('جنگل', 'jangal', 'forest', '🌳')]),
+      city('saidpur', 'Saidpur Village', 'سید پور', 'saiyad pur', '🏘️', 73.07, 33.745, 'An old village at the foot of the hills, restored as a place for food, crafts and history.', S('سید پور ایک پرانا گاؤں ہے۔', 'saiyad pur ek puraana gaaon hai.', 'Saidpur is an old village.'), [
+        W('گاؤں', 'gaaon', 'village', '🏘️'), W('دستکاری', 'dastkaari', 'handicrafts', '🧺'), W('مٹی کے برتن', 'miṭṭi ke bartan', 'clay pots', '🏺')]),
     ],
   },
   // ------------------------------------------------------------------------------------------------ Khyber Pakhtunkhwa

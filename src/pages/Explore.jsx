@@ -34,7 +34,7 @@ export default function Explore() {
 
       <div className="card mb-4 flex items-center justify-around text-center !p-3">
         <div><p className="text-2xl font-extrabold text-primary">🛂 {ex.regionCount}/{exploreRegions.length}</p><p className="text-xs font-bold text-ink/50">regions</p></div>
-        <div><p className="text-2xl font-extrabold text-secondary">📍 {ex.cityCount}/{exploreRegions.length * 4}</p><p className="text-xs font-bold text-ink/50">cities</p></div>
+        <div><p className="text-2xl font-extrabold text-secondary">📍 {ex.cityCount}/{exploreRegions.reduce((n, r) => n + r.cities.length, 0)}</p><p className="text-xs font-bold text-ink/50">cities</p></div>
         <div><p className="text-2xl font-extrabold text-ink">{exploreRegions.filter((r) => ex.unlocked(r)).length}/{exploreRegions.length}</p><p className="text-xs font-bold text-ink/50">unlocked</p></div>
       </div>
 
