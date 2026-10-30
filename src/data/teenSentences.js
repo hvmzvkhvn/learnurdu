@@ -18,6 +18,7 @@ export const teenSentenceGroups = [
       S('آپ کیا کام کرتے ہیں؟', 'aap kya kaam karte hain?', 'What do you do for work?'),
       S('میں طالب علم ہوں۔', 'main taalib-e-ilm hoon.', 'I am a student.'),
       S('آپ سے مل کر خوشی ہوئی۔', 'aap se mil kar khushi hui.', 'Nice to meet you.'),
+      S('میری مادری زبان پنجابی ہے، لیکن میں اردو بھی بولتا ہوں۔', 'meri maadri zabaan panjaabi hai, lekin main Urdu bhi bolta hoon.', 'My mother tongue is Punjabi, but I speak Urdu too. (a boy speaking)'),
     ],
   },
   {
@@ -52,6 +53,7 @@ export const teenSentenceGroups = [
       S('ریل گاڑی کتنے بجے چلے گی؟', 'rel gaaṛi kitne baje chale gi?', 'What time will the train leave?'),
       S('مہربانی کر کے آہستہ چلائیں۔', 'mehrbaani kar ke aahista chalaaein.', 'Please drive slowly.'),
       S('یہاں روک دیں۔', 'yahaan rok dein.', 'Please stop here.'),
+      S('کیا یہاں قریب کوئی ہوٹل ہے؟', 'kya yahaan qareeb koi hoṭal hai?', 'Is there a hotel near here?'),
     ],
   },
   {
@@ -69,6 +71,8 @@ export const teenSentenceGroups = [
       S('آزادی کے وقت لاکھوں لوگوں نے ہجرت کی۔', 'aazaadi ke waqt laakhon logon ne hijrat ki.', 'At independence, millions of people migrated.'),
       S('مینارِ پاکستان قرارداد کی یادگار ہے۔', 'minaar-e-paakistaan qaraardaad ki yaadgaar hai.', 'Minar-e-Pakistan is a memorial to the Resolution.'),
       S('ہمیں اپنے ورثے پر فخر ہے۔', 'hamein apne virse par fakhr hai.', 'We are proud of our heritage.'),
+      S('علامہ اقبال سیالکوٹ میں پیدا ہوئے۔', 'allaama iqbaal siyaalkoṭ mein paida hue.', 'Allama Iqbal was born in Sialkot.'),
+      S('قائد اعظم کراچی میں پیدا ہوئے۔', "qaa'id-e-aazam Karaachi mein paida hue.", 'The Quaid-e-Azam was born in Karachi.'),
     ],
   },
   {
@@ -116,6 +120,12 @@ export const teenSentenceGroups = [
       S('بندر کیا جانے ادرک کا سواد۔', 'bandar kya jaane adrak ka swaad.', 'What does a monkey know of the taste of ginger? (Some people cannot appreciate good things.)'),
       S('جس کی لاٹھی اس کی بھینس۔', 'jis ki laaṭhi us ki bhains.', 'Whoever holds the stick owns the buffalo. (Might is right.)'),
       S('گھر کی مرغی دال برابر۔', 'ghar ki murghi daal baraabar.', 'The chicken at home is worth no more than lentils. (We undervalue what we have.)'),
+      S('جتنی چادر ہو اتنے پاؤں پھیلاؤ۔', 'jitni chaadar ho utne paaon phailaao.', 'Stretch your legs only as far as your sheet goes. (Live within your means.)'),
+      S('نیکی کر دریا میں ڈال۔', 'neki kar darya mein ḍaal.', 'Do good and throw it in the river. (Do good without expecting thanks.)'),
+      S('صبر کا پھل میٹھا ہوتا ہے۔', 'sabr ka phal meeṭha hota hai.', 'The fruit of patience is sweet.'),
+      S('جیسا دیس ویسا بھیس۔', 'jaisa des waisa bhes.', 'As the land, so the dress. (When in Rome, do as the Romans do.)'),
+      S('دیر آید درست آید۔', 'der aayad durust aayad.', 'What comes late comes right. (Better late than never.)'),
+      S('بوند بوند سے دریا بنتا ہے۔', 'boond boond se darya banta hai.', 'Drop by drop, a river is made. (Small efforts add up.)'),
       S('اب پچھتائے کیا ہوت جب چڑیاں چگ گئیں کھیت۔', 'ab pachhtaaye kya hot jab chiṛiyaan chug gaeen khet.', 'What use is regret once the birds have eaten the crop? (No use crying over spilt milk.)'),
     ],
   },
@@ -145,6 +155,9 @@ export const tenseVerbs = [
   T('pahunchna', 'پہنچنا', 'arrive',
     tp(['پہنچا ہوں', 'پہنچے ہو', 'پہنچے ہیں'], ['pahuncha hoon', 'pahunche ho', 'pahunche hain'], 'have arrived'),
     tp(['پہنچوں گا', 'پہنچو گے', 'پہنچیں گے'], ['pahunchoon ga', 'pahuncho ge', 'pahunchein ge'], 'will arrive')),
+  T('lautna', 'لوٹنا', 'return',
+    tp(['لوٹا ہوں', 'لوٹے ہو', 'لوٹے ہیں'], ['lauṭa hoon', 'lauṭe ho', 'lauṭe hain'], 'have come back'),
+    tp(['لوٹوں گا', 'لوٹو گے', 'لوٹیں گے'], ['lauṭoon ga', 'lauṭo ge', 'lauṭein ge'], 'will come back')),
 ]
 
 export const tensePronouns = [

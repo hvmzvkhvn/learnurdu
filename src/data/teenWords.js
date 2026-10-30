@@ -24,6 +24,8 @@ export const teenWordCategories = [
       W('ہوٹل', 'hoṭal', 'hotel', '🏨'),
       W('سامان', 'saamaan', 'luggage', '🧳'),
       W('سفر', 'safar', 'journey', '🧭'),
+      W('ویزا', 'veeza', 'visa', '🛂'),
+      W('ٹیکسی', 'ṭaiksi', 'taxi', '🚕'),
     ],
   },
   {
@@ -108,6 +110,9 @@ export const teenWordCategories = [
       W('کہانی', 'kahaani', 'story', '📖'),
       W('تصویر', 'tasveer', 'picture', '🖼️'),
       W('ناول', 'naawal', 'novel', '📚'),
+      W('نظم', 'nazm', 'poem (a nazm)', '📝'),
+      W('سینما', 'sinema', 'cinema', '🎦'),
+      W('ہدایت کار', 'hidaayat kaar', 'film director', '🎬'),
     ],
   },
   {
@@ -129,6 +134,8 @@ export const teenWordCategories = [
       W('آئین', "aa'een", 'constitution', '📘'),
       W('جشن', 'jashn', 'celebration', '🎆'),
       W('ورثہ', 'virsa', 'heritage', '🏺'),
+      W('تحریک', 'tehreek', 'movement (political)', '✊'),
+      W('قرارداد', 'qaraardaad', 'resolution', '📜'),
     ],
   },
   {
@@ -204,6 +211,9 @@ export const teenWordCategories = [
       W('ڈاکٹر', 'ḍaakṭar', 'doctor', '🩺'),
       W('انجینئر', 'injeeniyar', 'engineer', '👷'),
       W('خواب', 'khwaab', 'dream', '🌠'),
+      W('کلاس', 'klaas', 'class', '👩‍🏫'),
+      W('چھٹیاں', 'chhuṭṭiyaan', 'the holidays', '🏖️'),
+      W('داخلہ', 'daakhila', 'admission (to a school)', '📝'),
     ],
   },
   {
@@ -224,6 +234,8 @@ export const teenWordCategories = [
       W('عیدی', 'eidi', 'Eid money given to children', '💵'),
       W('بسنت', 'basant', 'Basant, the kite festival of spring', '🪁'),
       W('سالگرہ', 'saalgirah', 'birthday', '🎂'),
+      W('آتش بازی', 'aatish baazi', 'fireworks', '🎆'),
+      W('سہرا', 'sehra', "the groom's veil of flowers", '💐'),
     ],
   },
 ]

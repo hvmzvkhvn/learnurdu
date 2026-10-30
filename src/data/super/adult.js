@@ -31,7 +31,7 @@ export const adultSuper = {
   'a-politics': {
     label: 'News, Politics & the Economy',
     items: [
-      ['انتخابات میں عوام ووٹ دیتے ہیں۔', 'In elections the people vote.'],
+      ['انتخابات کے بعد حکومت اور وزیر اعظم۔', 'After the elections: a government and a prime minister.'],
       ['مہنگائی پر حکومت کا نیا قانون۔', "The government's new law on inflation."],
       ['کپاس اور کپڑا پاکستان کی برآمدات ہیں۔', "Cotton and textiles are among Pakistan's exports."],
       ['اخبار میں وزیر اعظم کی خبر ہے۔', 'There is news about the prime minister in the paper.'],

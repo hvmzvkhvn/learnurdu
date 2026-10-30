@@ -66,6 +66,21 @@ export const poems = [
   },
 ]
 
+poems.splice(3, 0, {
+  key: 'gilehri', title: 'ایک پہاڑ اور گلہری', emoji: '🐿️', author: 'Allama Iqbal',
+  note: 'Iqbal\'s children\'s poem "The Mountain and the Squirrel": a proud mountain mocks a little squirrel, who answers that everyone has their own worth.',
+  teen: [
+    L('کوئی پہاڑ یہ کہتا تھا اک گلہری سے', 'koi pahaaṛ yeh kehta tha ik gilehri se', 'A mountain once said to a squirrel:'),
+    L('تجھے ہو شرم تو پانی میں جا کے ڈوب مرے', 'tujhe ho sharm to paani mein ja ke ḍoob mare', '"If you had any shame, you would go and drown yourself!"'),
+  ],
+  senior: [
+    L('کوئی پہاڑ یہ کہتا تھا اک گلہری سے', 'koi pahaaṛ yeh kehta tha ik gilehri se', 'A mountain once said to a squirrel:'),
+    L('تجھے ہو شرم تو پانی میں جا کے ڈوب مرے', 'tujhe ho sharm to paani mein ja ke ḍoob mare', '"If you had any shame, you would go and drown yourself!'),
+    L('ذرا سی چیز ہے، اس پر غرور، کیا کہنا', 'zara si cheez hai, is par ghuroor, kya kehna', 'Such a tiny thing, and so proud — what can one say!'),
+    L('یہ عقل اور یہ سمجھ، یہ شعور، کیا کہنا', "yeh aql aur yeh samajh, yeh sha'oor, kya kehna", 'Such wits, such understanding, such sense — what can one say!"'),
+  ],
+})
+
 // ---- Reading passages ----------------------------------------------------------------------
 export const passages = [
   {
